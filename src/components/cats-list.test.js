@@ -10,8 +10,13 @@ describe('CatsList component tests', () => {
         {"name":"Elmira", "age":73286, "picture":"http://lorempixel.com/500/500/cats/6"}
     ]
 
-it('should render one <Cat /> components', () => {
+it('should render no <Cat /> component', () => {
+   const wrapper = shallow(<CatsList cats={[]}/>);
+   expect(wrapper.find(Cat).length).toEqual(0);
+  });
+
+it('should render two <Cat /> components', () => {
    const wrapper = shallow(<CatsList cats={props}/>);
    expect(wrapper.find(Cat).length).toEqual(2);
   });
-})
+});
